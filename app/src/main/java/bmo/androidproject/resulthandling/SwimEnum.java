@@ -1,6 +1,8 @@
-package bmo.androidproject;
+package bmo.androidproject.resulthandling;
 
 import android.content.Context;
+
+import bmo.androidproject.R;
 
 /**
  * Created by Garry on 4/19/2017.

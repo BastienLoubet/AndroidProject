@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="SwimStyle">
+        <item>Nage libre</item>
+        <item>Dos</item>
+        <item>Papillon</item>
+        <item>Brasse</item>
+    </string-array>
+
+</resources>

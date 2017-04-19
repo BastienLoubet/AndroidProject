@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="SwimStyle">
+        <item>Crawl</item>
+        <item>Backstroke</item>
+        <item>Butterfly</item>
+        <item>Breaststroke</item>
+    </string-array>
+</resources>

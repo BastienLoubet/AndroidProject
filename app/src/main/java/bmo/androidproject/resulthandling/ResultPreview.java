@@ -1,9 +1,11 @@
-package bmo.androidproject;
+package bmo.androidproject.resulthandling;
 
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import bmo.androidproject.resulthandling.Result;
 
 /**
  * Created by Garry on 4/19/2017.

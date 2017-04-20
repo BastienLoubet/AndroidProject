@@ -36,9 +36,12 @@ public class ListResult {
         return null;
     }
 
-    public boolean addResult(int iId, int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
+    public boolean addResult(int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
         oHelper.insertResult(iTime,iDistance,oSwinStyle.ordinal(),lDate,sComment,0,"");
         return true;
     }
 
+    public int getResultNbr(){
+        return oHelper.getTableSize();
+    }
 }

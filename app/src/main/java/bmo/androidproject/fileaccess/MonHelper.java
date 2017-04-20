@@ -17,7 +17,7 @@ public class MonHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE result(id INTEGER PRIMARY KEY, time INTEGER, distance INTEGER, swimstyle INTEGER, date INTEGER, comment TEXT,ranking INTEGER, ligue TEXT;");
+        db.execSQL("CREATE TABLE result(id INTEGER PRIMARY KEY, time INTEGER, distance INTEGER, swimstyle INTEGER, date INTEGER, comment TEXT,ranking INTEGER, ligue TEXT);");
     }
 
     @Override

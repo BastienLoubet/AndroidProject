@@ -5,4 +5,5 @@
     <string name="detailSwimStyle">The swimstyle used</string>
     <string name="detailDate">The date of your feat</string>
     <string name="detailComment">Your comments</string>
+    <string name="detailButton">Modifier</string>
 </resources>

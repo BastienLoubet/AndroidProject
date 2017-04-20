@@ -14,6 +14,12 @@ import bmo.androidproject.fileaccess.MonHelper;
 
 public class ListResult {
 
+    private Context oContext;
+
+    //Le constructeur requier un context valide pour pourvoir invoque le SQL helper
+    public ListResult(Context oContext){
+        this.oContext = oContext;
+    }
 
     private Result createResultFromInfo(int iId,Info oInfo){
         if(oInfo.getRanking() == 0)
@@ -22,7 +28,7 @@ public class ListResult {
     }
 
     //Retourne l'objet resultat a l'indice donne
-    public Result getResultbyId(Context oContext, int iId){
+    public Result getResultbyId(int iId){
         MonHelper oHelper = new MonHelper(oContext);
         Info oInfo = oHelper.getTableRow(iId);
         if (oInfo != null){
@@ -30,4 +36,11 @@ public class ListResult {
         }
         return null;
     }
+
+    public boolean addResult(int iId, int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
+        MonHelper oHelper = new MonHelper(oContext);
+        oHelper.insertResult(iTime,iDistance,oSwinStyle.ordinal(),lDate,sComment,0,"");
+        return true;
+    }
+
 }

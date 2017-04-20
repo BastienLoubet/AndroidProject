@@ -6,4 +6,5 @@
         <item>Butterfly</item>
         <item>Breaststroke</item>
     </string-array>
+    <string name="SwimUnknown">Unknown</string>
 </resources>

@@ -2,11 +2,14 @@ package bmo.androidproject.resulthandling;
 
 import android.content.Context;
 
+import java.io.Serializable;
+
 /**
- * Created by Garry on 4/19/2017.
+ * La classe qui contient les donnes du resultat
+ * Note que celle ci est serializable pour pouvoir etre passe en argument dans une intent entre activite
  */
 
-public class Result {
+public class Result implements Serializable{
 
     //La competition associe null si entrainement
     private Competition oCompetition;

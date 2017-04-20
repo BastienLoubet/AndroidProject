@@ -26,12 +26,12 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.i("HomeActivity", "onCreate() ended");
         Toast.makeText(this, "Yeahhh !!!!", Toast.LENGTH_LONG).show();
-        setContentView(new MapView(this));
+        setContentView(R.layout.home_layout);
     }
 
 
 
-    private class MapView extends View {
+    /*private class MapView extends View {
 
         public MapView(Context context) {
             super(context);
@@ -46,5 +46,5 @@ public class HomeActivity extends Activity {
                     R.drawable.crazy_swimmer);
             canvas.drawBitmap(bitmap, 0, 0, null);
         }
-    }
+    }*/
 }

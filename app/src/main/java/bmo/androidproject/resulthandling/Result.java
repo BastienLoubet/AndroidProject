@@ -34,7 +34,7 @@ public class Result implements Serializable{
     }
 
     //Le constructeur sans la competition
-    Result(int iId, int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
+    public Result(int iId, int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
         this.iId = iId;
         this.iTime = iTime;
         this.iDistance = iDistance;

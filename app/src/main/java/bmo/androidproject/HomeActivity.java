@@ -17,6 +17,10 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import bmo.androidproject.fileaccess.Load;
+import bmo.androidproject.resulthandling.ListResult;
+import bmo.androidproject.resulthandling.Result;
+import bmo.androidproject.resulthandling.ResultPreview;
+import bmo.androidproject.resulthandling.SwimEnum;
 
 /**
  * Created by Garry on 4/19/2017.
@@ -30,6 +34,14 @@ public class HomeActivity extends Activity {
         Toast.makeText(this,getString(R.string.accmess),Toast.LENGTH_LONG).show();
         setContentView(R.layout.home_layout);
         setListeners();
+        setPreview();
+    }
+
+    private void setPreview(){
+        LinearLayout oLayout = (LinearLayout) findViewById(R.id.preview);
+        //ListResult oList = new ListResult(this);
+        oLayout.addView(new ResultPreview(new Result(0,1000,1000, SwimEnum.Backstroke,27174352,"Un super commentaire  !"),this));
+        oLayout.addView(new ResultPreview(new Result(1,9000,1000, SwimEnum.Backstroke,27174352,"Un autre super commentaire  !"),this));
     }
 
 

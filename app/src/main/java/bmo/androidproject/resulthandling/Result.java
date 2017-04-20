@@ -23,16 +23,19 @@ public class Result implements Serializable{
     private long lDate;
     //Un commentaire libre
     private String sComment;
+    //l'id unique du resultat
+    private int iId;
 
 
     //Le constructeur complet, note qu'il fait appel au constructeur sans competition
-    Result(int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment, int iRanking, String sLigue){
-        this(iTime,iDistance,oSwinStyle,lDate,sComment);
+    Result(int iId,int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment, int iRanking, String sLigue){
+        this(iId,iTime,iDistance,oSwinStyle,lDate,sComment);
         oCompetition = new Competition(iRanking,sLigue);
     }
 
     //Le constructeur sans la competition
-    Result(int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
+    Result(int iId, int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
+        this.iId = iId;
         this.iTime = iTime;
         this.iDistance = iDistance;
         this.oSwinStyle = oSwinStyle;
@@ -60,6 +63,10 @@ public class Result implements Serializable{
 
     public String getComment() {
         return sComment;
+    }
+
+    public int getId() {
+        return iId;
     }
 
     //On encapsule la competition

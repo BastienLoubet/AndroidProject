@@ -22,8 +22,23 @@ public class Result {
     private String sComment;
 
 
-    //Les getters
+    //Le constructeur complet, note qu'il fait appel au constructeur sans competition
+    Result(int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment, int iRanking, String sLigue){
+        this(iTime,iDistance,oSwinStyle,lDate,sComment);
+        oCompetition = new Competition(iRanking,sLigue);
+    }
 
+    //Le constructeur sans la competition
+    Result(int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment){
+        this.iTime = iTime;
+        this.iDistance = iDistance;
+        this.oSwinStyle = oSwinStyle;
+        this.lDate = lDate;
+        this.sComment = sComment;
+        oCompetition=null;
+    }
+
+    //Les getters
     public int getTime() {
         return iTime;
     }
@@ -43,4 +58,28 @@ public class Result {
     public String getsComment() {
         return sComment;
     }
+
+    //On encapsule la competition
+
+    //Test si le ressultat est une competition
+    public boolean isCompetition(){
+        if (oCompetition == null)
+            return false;
+        return true;
+    }
+
+    //obtient le classement de la competition retourne 0 si pas de competition
+    public int getRanking(){
+        if(isCompetition())
+            return oCompetition.getRanking();
+        return 0;
+    }
+
+    //Obtient la ligue, retourne une chaine vide si pas une competition
+    public String getLigue(){
+        if(isCompetition())
+            return oCompetition.getLigue();
+        return "";
+    }
+
 }

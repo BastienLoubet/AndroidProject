@@ -1,6 +1,7 @@
 package bmo.androidproject;
 
 import android.app.Activity;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -30,21 +32,45 @@ public class HomeActivity extends Activity {
     }
 
 
-
-    /*private class MapView extends View {
-
-        public MapView(Context context) {
-            super(context);
-        }
-
-
-
+private void setListeners(){
+    // une classe anonyme écoute le bouton de la liste
+    Button bt1 = (Button) findViewById(R.id.button1);
+        bt1.setOnClickListener(new View.OnClickListener() {
         @Override
-        protected void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
-                    R.drawable.crazy_swimmer);
-            canvas.drawBitmap(bitmap, 0, 0, null);
+        public void onClick(View view) {
+            Intent intent = new Intent(view.getContext() , ListingActivity.class);
+            startActivity(intent);
         }
-    }*/
+    });
+
+    // une classe anonyme écoute le bouton du graph
+    Button bt2 = (Button) findViewById(R.id.button2);
+    bt2.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(view.getContext() , GraphActivity.class);
+            startActivity(intent);
+        }
+    });
+
+    // une classe anonyme écoute le bouton ajouter
+    Button bt3 = (Button) findViewById(R.id.button3);
+    bt3.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(view.getContext() , AddActivity.class);
+            startActivity(intent);
+        }
+    });
+
+
+
+
+
+}
+
+
+
+
+
 }

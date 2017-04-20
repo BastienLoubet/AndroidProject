@@ -27,7 +27,7 @@ public class HomeActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("HomeActivity", "onCreate() ended");
-        Toast.makeText(this, "Yeahhh !!!!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this,getString(R.string.accmess),Toast.LENGTH_LONG).show();
         setContentView(R.layout.home_layout);
         setListeners();
     }

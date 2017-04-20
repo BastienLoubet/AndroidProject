@@ -6,4 +6,5 @@
     <string name="bt1">List</string>
     <string name="bt2">Graph</string>
     <string name="bt3">Add</string>
+    <string name="accmess">Welcome to SwimApp</string>
 </resources>

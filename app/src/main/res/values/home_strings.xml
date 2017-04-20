@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SwimApp</string>
+    <string name="home_info">This is the Zoo manager application tailor-made
+        for the ACME zoo.\nWe have here the <b>best lions</b>, worst gorillas and
+        biggest whales. For more information call 0242948992 or
+        email : info@myzoo.com .</string>
+
+</resources>

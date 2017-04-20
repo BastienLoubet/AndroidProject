@@ -43,7 +43,7 @@ public class HomeActivity extends Activity {
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
-                    R.drawable.map_overview);
+                    R.drawable.crazy_swimmer);
             canvas.drawBitmap(bitmap, 0, 0, null);
         }
     }

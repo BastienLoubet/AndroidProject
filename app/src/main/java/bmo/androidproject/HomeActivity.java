@@ -29,6 +29,7 @@ public class HomeActivity extends Activity {
         Log.i("HomeActivity", "onCreate() ended");
         Toast.makeText(this, "Yeahhh !!!!", Toast.LENGTH_LONG).show();
         setContentView(R.layout.home_layout);
+        setListeners();
     }
 
 

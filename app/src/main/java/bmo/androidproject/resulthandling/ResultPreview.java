@@ -31,7 +31,7 @@ public class ResultPreview extends LinearLayout {
     //Initialise l'objet layout et modifie les vues nessecaires
     private void initView(){
         TextView oText = new TextView(this.getContext());
-        oText.setText(oResult.getComment());
+        oText.setText(oResult.getSwinStyle(oContext));
         this.addView(oText);
     }
 

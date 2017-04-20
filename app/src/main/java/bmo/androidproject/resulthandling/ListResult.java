@@ -1,28 +1,33 @@
 package bmo.androidproject.resulthandling;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
+import bmo.androidproject.fileaccess.Info;
+import bmo.androidproject.fileaccess.MonHelper;
+
 /**
- * Un singleton qui est recharger a chaque fois que nessecaire
- * Note que l'application va peut etre effacer ce singleton de temps en temps
- * Cette classe doit donc etre responsable de se charger elle meme integralement
- * si elle n'existe plus.
- * Elle doit donc aussi se sauvegarder des qu'elle change.
+ * Un objet interface entre monHelper et Les objets results
+ * cette classe est responsable de la creations des objets result a renvoyer au reste de l'application
  */
 
 public class ListResult {
-    private static ListResult oInstance;
-
-    private ArrayList<Result> aResults;
 
 
-    private ListResult(){
-
+    private Result createResultFromInfo(int iId,Info oInfo){
+        if(oInfo.getRanking() == 0)
+            return new Result(iId,oInfo.getTime(),oInfo.getDistance(),SwimEnum.values()[oInfo.getSwimstyle()],oInfo.getDate(),oInfo.getComment());
+        return new Result(iId,oInfo.getTime(),oInfo.getDistance(),SwimEnum.values()[oInfo.getSwimstyle()],oInfo.getDate(),oInfo.getComment(),oInfo.getRanking(),oInfo.getLigue());
     }
 
-
-    //Retourne l'objet resultat a l'indice donnne
-    public Result getResultbyId(int iId){
-        return aResults.get(iId);
+    //Retourne l'objet resultat a l'indice donne
+    public Result getResultbyId(Context oContext, int iId){
+        MonHelper oHelper = new MonHelper(oContext);
+        Info oInfo = oHelper.getTableRow(iId);
+        if (oInfo != null){
+            return createResultFromInfo(iId,oInfo);
+        }
+        return null;
     }
 }

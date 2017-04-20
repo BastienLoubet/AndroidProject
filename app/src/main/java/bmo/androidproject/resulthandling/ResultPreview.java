@@ -5,20 +5,26 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import bmo.androidproject.resulthandling.Result;
-
 /**
  * Created by Garry on 4/19/2017.
  */
 
 public class ResultPreview extends LinearLayout {
 
+    private Result oResult;
+
     public ResultPreview(Result oResult, Context context) {
         super(context);
-        TextView oText = new TextView(this.getContext());
-        oText.setText(oResult.toString());
-        this.addView(oText);
+        this.oResult = oResult;
+        initView();
 
+    }
+
+    //Initialise l'objet layout et modifie les vues nessecaire
+    private void initView(){
+        TextView oText = new TextView(this.getContext());
+        oText.setText(oResult.getComment());
+        this.addView(oText);
     }
 
     @Override

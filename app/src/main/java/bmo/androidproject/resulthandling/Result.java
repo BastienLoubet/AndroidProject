@@ -55,7 +55,7 @@ public class Result {
         return lDate;
     }
 
-    public String getsComment() {
+    public String getComment() {
         return sComment;
     }
 

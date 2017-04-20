@@ -8,8 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-<style name="button">
-    <item name="android:textColor">#3bd2fc</item>
-    <item name="android:background">#006d8c</item>
-</style>
+    <style name="button">
+        <item name="android:textColor">#3bd2fc</item>
+        <item name="android:background">#006d8c</item>
+        <item name="android:layout_margin">10px</item>
+    </style>
+
+    <style name="textPreview">
+        <item name="android:textColor">#3bd2fc</item>
+        <item name="android:background">#006d8c</item>
+        <item name="android:padding">10sp</item>
+    </style>
+
 </resources>

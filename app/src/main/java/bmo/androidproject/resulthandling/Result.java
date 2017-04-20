@@ -28,7 +28,7 @@ public class Result implements Serializable{
 
 
     //Le constructeur complet, note qu'il fait appel au constructeur sans competition
-    Result(int iId,int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment, int iRanking, String sLigue){
+    public Result(int iId,int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment, int iRanking, String sLigue){
         this(iId,iTime,iDistance,oSwinStyle,lDate,sComment);
         oCompetition = new Competition(iRanking,sLigue);
     }

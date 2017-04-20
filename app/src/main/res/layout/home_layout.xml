@@ -42,24 +42,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#029fff">
+        android:background="#029fff"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button1"
-
             style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10px"
             android:layout_weight="1"
-            android:padding="10px"
-            android:paddingBottom="10px"
-            android:paddingEnd="10px"
-            android:paddingLeft="10px"
-            android:paddingRight="10px"
-            android:paddingStart="10px"
-            android:paddingTop="10px"
             android:text="@string/bt1" />
 
         <Button
@@ -67,15 +58,7 @@
             style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10px"
             android:layout_weight="1"
-            android:padding="10px"
-            android:paddingBottom="10px"
-            android:paddingEnd="10px"
-            android:paddingLeft="10px"
-            android:paddingRight="10px"
-            android:paddingStart="10px"
-            android:paddingTop="10px"
             android:shadowColor="@color/colorPrimaryDark"
             android:text="@string/bt2" />
 
@@ -84,15 +67,7 @@
             style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10px"
             android:layout_weight="1"
-            android:padding="10px"
-            android:paddingBottom="10px"
-            android:paddingEnd="10px"
-            android:paddingLeft="10px"
-            android:paddingRight="10px"
-            android:paddingStart="10px"
-            android:paddingTop="10px"
             android:text="@string/bt3" />
     </LinearLayout>
 

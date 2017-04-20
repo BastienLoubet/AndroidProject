@@ -2,11 +2,13 @@ package bmo.androidproject.resulthandling;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import bmo.androidproject.DetailActivity;
+import bmo.androidproject.R;
 
 /**
  * Created by Garry on 4/19/2017.
@@ -27,21 +29,39 @@ public class ResultPreview extends LinearLayout {
         initView();
     }
 
+
+    private void CreateTextView(String sText) {
+
+        TextView oText = new TextView(new ContextThemeWrapper(this.getContext(), R.style.textPreview));
+        oText.setText(sText);
+        this.addView(oText);
+    }
+
     //Initialise l'objet layout et modifie les vues nessecaires
-    private void initView(){
-        TextView oText = new TextView(this.getContext());
-        oText.setText(oResult.getComment());
-        this.addView(oText);
-        oText = new TextView(this.getContext());
-        oText.setText(Integer.toString(oResult.getTime()));
-        this.addView(oText);
+    private void initView() {
+
+        CreateTextView(Long.toString(oResult.getDate()));
+
+        CreateTextView(Integer.toString(oResult.getTime()));
+
+        CreateTextView(Integer.toString(oResult.getDistance()));
+
+        CreateTextView(oResult.getSwinStyle(getContext()));
+
+
+        if (oResult.isCompetition()) {
+            CreateTextView(Integer.toString(oResult.getRanking()));
+            CreateTextView(oResult.getLigue());
+
+        }
+
     }
 
     //l'objet resultat a afficher
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Intent oIntent = new Intent(oContext, DetailActivity.class);
-        oIntent.putExtra("Result",oResult);
+        oIntent.putExtra("Result", oResult);
         oContext.startActivity(oIntent);
         return true;
 

@@ -41,7 +41,7 @@ public class HomeActivity extends Activity {
         LinearLayout oLayout = (LinearLayout) findViewById(R.id.preview);
         //ListResult oList = new ListResult(this);
         oLayout.addView(new ResultPreview(new Result(0,1000,1000, SwimEnum.Backstroke,27174352,"Un super commentaire  !"),this));
-        oLayout.addView(new ResultPreview(new Result(1,9000,1000, SwimEnum.Backstroke,27174352,"Un autre super commentaire  !"),this));
+        oLayout.addView(new ResultPreview(new Result(1,9000,1000, SwimEnum.Backstroke,22717432,"Un autre super commentaire  !",1,"Occitanie"),this));
     }
 
 

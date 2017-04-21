@@ -79,7 +79,7 @@ public class AddActivity extends Activity {
             EditText oComment = (EditText) findViewById(R.id.detailComment);
             String comment = oComment.getText().toString();
             Spinner oSpin = (Spinner) findViewById(R.id.detailSwimStyle);
-            Toast.makeText(v.getContext(),SwimEnum.values()[oSpin.getSelectedItemPosition()].getName(v.getContext()),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(v.getContext(),SwimEnum.values()[oSpin.getSelectedItemPosition()].getName(v.getContext()),Toast.LENGTH_SHORT).show();
             SwimEnum oSwim = SwimEnum.values()[oSpin.getSelectedItemPosition()];
             EditText oDate = (EditText) findViewById(R.id.detailDate);
             long lDate = 0;
@@ -88,7 +88,7 @@ public class AddActivity extends Activity {
                 oMyDate = new Date();
                 lDate = oMyDate.getTime();
             }else {
-                DateFormat df = DateFormat.getDateInstance();
+                DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
                 try {
                     oMyDate = df.parse(oDate.getText().toString());
                     lDate = oMyDate.getTime();

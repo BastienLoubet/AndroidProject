@@ -20,4 +20,10 @@
         <item name="android:padding">10sp</item>
     </style>
 
+    <style name="layouStyle1">
+        <item name="android:textColor">#3bd2fc</item>
+        <item name="android:background">#006d8c</item>
+        <item name="android:padding">10sp</item>
+    </style>
+
 </resources>

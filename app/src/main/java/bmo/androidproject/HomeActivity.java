@@ -39,9 +39,16 @@ public class HomeActivity extends Activity {
         setPreview();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setPreview();
+    }
+
     //Ajoute les derniers resultat au linear layout de preview
     private void setPreview(){
         LinearLayout oLayout = (LinearLayout) findViewById(R.id.preview);
+        oLayout.removeAllViews();
         ListResult oList = new ListResult(this);
         ArrayList<Result> aRes = oList.getLastResult();
         for(Result oRes: aRes){

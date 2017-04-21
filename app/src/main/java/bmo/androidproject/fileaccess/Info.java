@@ -18,6 +18,7 @@ public class Info {
         this.id = id;
         this.time = time;
         this.distance=distance;
+        this.swimstyle = swimstyle;
         this.date = date;
         this.comment = comment;
         this.ranking = ranking;

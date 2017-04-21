@@ -10,6 +10,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import bmo.androidproject.resulthandling.ListResult;
 import bmo.androidproject.resulthandling.Result;
 import bmo.androidproject.resulthandling.SwimEnum;
@@ -49,29 +55,56 @@ public class AddActivity extends Activity {
 
     class MyListener implements View.OnClickListener {
 
+        private int getInt(int iRes){
+            EditText oText = (EditText) findViewById(iRes);
+            try {
+                return Integer.parseInt(oText.getText().toString());
+            }catch (NumberFormatException e){
+                return -1;
+            }
+        }
+
         @Override
         public void onClick(View v) {
-            EditText oTime = (EditText) findViewById(R.id.detailTime);
-            int time = Integer.parseInt(oTime.getText().toString());
-            EditText oDistance = (EditText) findViewById(R.id.detailDistance);
-            int distance = Integer.parseInt(oDistance.getText().toString());
+            int time = getInt(R.id.detailTime);
+            if(time == -1){
+                Toast.makeText(v.getContext(),getString(R.string.errorTime),Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int distance = getInt(R.id.detailDistance);
+            if(distance == -1){
+                Toast.makeText(v.getContext(),getString(R.string.errorDistance),Toast.LENGTH_SHORT).show();
+                return;
+            }
             EditText oComment = (EditText) findViewById(R.id.detailComment);
             String comment = oComment.getText().toString();
             Spinner oSpin = (Spinner) findViewById(R.id.detailSwimStyle);
+            Toast.makeText(v.getContext(),SwimEnum.values()[oSpin.getSelectedItemPosition()].getName(v.getContext()),Toast.LENGTH_SHORT).show();
             SwimEnum oSwim = SwimEnum.values()[oSpin.getSelectedItemPosition()];
             EditText oDate = (EditText) findViewById(R.id.detailDate);
+            long lDate = 0;
+            Date oMyDate;
+            if(oDate.getText().toString().equals("")){
+                oMyDate = new Date();
+                lDate = oMyDate.getTime();
+            }else {
+                DateFormat df = DateFormat.getDateInstance();
+                try {
+                    oMyDate = df.parse(oDate.getText().toString());
+                    lDate = oMyDate.getTime();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    String sMes = getString(R.string.wrongFormat, df.format(new Date()));
+                    Toast.makeText(v.getContext(), sMes, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
             ListResult oListRes = new ListResult(v.getContext());
 
-            oListRes.addResult(1213,456, SwimEnum.Backstroke,1232432543,"Un super commentaire");
-            Toast.makeText(v.getContext(),"il y en a "+Integer.toString(oListRes.getResultNbr()),Toast.LENGTH_SHORT).show();
-            ListResult oList = new ListResult(v.getContext());
-            Result oResult = oList.getResultbyId(1);
-            String sMes= "";
-            sMes += Integer.toString(oResult.getTime());
-            sMes += Integer.toString(oResult.getDistance());
-            sMes += oResult.getSwinStyle(v.getContext());
-            sMes += oResult.getComment();
-            Toast.makeText(v.getContext(),sMes,Toast.LENGTH_SHORT).show();
+            oListRes.addResult(time,distance, oSwim,lDate,comment);
+            //Toast.makeText(v.getContext(),"il y en a "+Integer.toString(oListRes.getResultNbr()),Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(),getString(R.string.confirmation),Toast.LENGTH_SHORT).show();
         }
     }
 }

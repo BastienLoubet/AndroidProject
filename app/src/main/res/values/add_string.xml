@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="addButton">Add</string>
+    <string name="wrongFormat">The date has a wrong format, please use %1$s </string>
+    <string name="confirmation">Result has been added successfully !</string>
+    <string name="errorTime"> Please enter a time </string>
+    <string name="errorDistance"> Please enter a distance </string>
 </resources>

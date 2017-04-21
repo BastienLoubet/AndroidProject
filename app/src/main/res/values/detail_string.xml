@@ -9,4 +9,5 @@
     <string name="isCompetition">Competition ?</string>
     <string name="detailRanking">Ranking</string>
     <string name="detailLigue">The League</string>
+    <string name="buttonModify">Save change</string>
 </resources>

@@ -57,6 +57,10 @@ public class Result implements Serializable{
         return oSwinStyle.getName(oContext);
     }
 
+    public SwimEnum getEnumSwinStyle() {
+        return oSwinStyle;
+    }
+
     public long getDate() {
         return lDate;
     }

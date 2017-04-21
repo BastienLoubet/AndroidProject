@@ -58,7 +58,6 @@ public class MonHelper extends SQLiteOpenHelper {
     //creer l'objet Info a passer a ListResult
     private Info makeFromRow(Cursor c){
         int id = c.getInt(c.getColumnIndexOrThrow("_id"));
-        Toast.makeText(oContext,"L'id vaut: "+Integer.toString(id),Toast.LENGTH_SHORT).show();
         int time = c.getInt(c.getColumnIndexOrThrow("time"));
         int distance = c.getInt(c.getColumnIndexOrThrow("distance"));
         int swimstyle= c.getInt(c.getColumnIndexOrThrow("swimstyle"));
@@ -69,24 +68,11 @@ public class MonHelper extends SQLiteOpenHelper {
         return new Info(id,time,distance,swimstyle,date,comment,ranking,ligue);
     }
 
-    private int getMaxId(){
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT MAX(_id) FROM result WHERE 1;",null);
-        int iMax;
-        if(c.moveToFirst()) {
-            iMax = c.getInt(0);
-            Toast.makeText(oContext, "Reussi a choper le max: " + Integer.toString(iMax), Toast.LENGTH_SHORT).show();
-        }
-        else iMax = 0;
-        c.close();
-        return iMax;
-    }
-
 
     //Renvoie l'objet Info correspondant a l'id donne
     public Info getTableRow(int i){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM result WHERE truc=?;",new String[] {Integer.toString(i)});
+        Cursor c = db.rawQuery("SELECT * FROM result WHERE _id=?;",new String[] {Integer.toString(i)});
         if(c.moveToFirst()){
             return makeFromRow(c);
         }
@@ -124,5 +110,11 @@ public class MonHelper extends SQLiteOpenHelper {
         }
         c.close();
         return null;
+    }
+
+    public void ModifyResult(int iId,int iTime,int iDistance,int iSwinStyle, long lDate, String sComment, int iRanking,String sLigue){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE result SET time=? , distance=? , swimstyle=?, date =?, comment=?, ranking=?, ligue=? WHERE _id=?",
+                new Object[] {iTime,iDistance,iSwinStyle,lDate,sComment,iRanking,sLigue,iId});
     }
 }

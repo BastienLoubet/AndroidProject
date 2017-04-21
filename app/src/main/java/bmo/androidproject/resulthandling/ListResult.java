@@ -88,6 +88,6 @@ public class ListResult {
 
     //Fonction qui appelle la modification dans la base de donne
     public void ModifyResult(int iId,int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment, int iRanking,String sLigue){
-
+        oHelper.ModifyResult(iId,iTime,iDistance,oSwinStyle.ordinal(),lDate,sComment,iRanking,sLigue);
     }
 }

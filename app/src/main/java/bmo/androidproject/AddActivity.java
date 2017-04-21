@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import bmo.androidproject.fileaccess.Info;
 import bmo.androidproject.resulthandling.ListResult;
 import bmo.androidproject.resulthandling.Result;
 import bmo.androidproject.resulthandling.SwimEnum;
@@ -64,17 +66,16 @@ public class AddActivity extends Activity {
             }
         }
 
-        @Override
-        public void onClick(View v) {
+        private Info getInfoFromEntry(View v){
             int time = getInt(R.id.detailTime);
             if(time == -1){
                 Toast.makeText(v.getContext(),getString(R.string.errorTime),Toast.LENGTH_SHORT).show();
-                return;
+                return null;
             }
             int distance = getInt(R.id.detailDistance);
             if(distance == -1){
                 Toast.makeText(v.getContext(),getString(R.string.errorDistance),Toast.LENGTH_SHORT).show();
-                return;
+                return null;
             }
             EditText oComment = (EditText) findViewById(R.id.detailComment);
             String comment = oComment.getText().toString();
@@ -95,15 +96,35 @@ public class AddActivity extends Activity {
                     e.printStackTrace();
                     String sMes = getString(R.string.wrongFormat, df.format(new Date()));
                     Toast.makeText(v.getContext(), sMes, Toast.LENGTH_SHORT).show();
-                    return;
+                    return null;
                 }
             }
+            CheckBox oCheck = (CheckBox) findViewById(R.id.isCompetition);
+            if(! oCheck.isChecked())
+                return new Info(0,time,distance,oSwim.ordinal(),lDate,comment,0,"");
 
-            ListResult oListRes = new ListResult(v.getContext());
+            int ranking = getInt(R.id.detailRanking);
+            if(ranking == -1){
+                Toast.makeText(v.getContext(),getString(R.string.errorRanking),Toast.LENGTH_SHORT).show();
+                return null;
+            }
 
-            oListRes.addResult(time,distance, oSwim,lDate,comment);
-            Toast.makeText(v.getContext(),getString(R.string.confirmation),Toast.LENGTH_SHORT).show();
-            finish();
+            EditText oLigue = (EditText) findViewById(R.id.detailLigue);
+            String sLigue = oLigue.getText().toString();
+
+            return new Info(0,time,distance,oSwim.ordinal(),lDate,comment,ranking,sLigue);
+        }
+
+        @Override
+        public void onClick(View v) {
+
+            Info oInfo = getInfoFromEntry(v);
+            if(oInfo != null) {
+                ListResult oListRes = new ListResult(v.getContext());
+                oListRes.addResult(oInfo.getTime(), oInfo.getDistance(), SwimEnum.values()[oInfo.getSwimstyle()], oInfo.getDate(), oInfo.getComment(),oInfo.getRanking(),oInfo.getLigue());
+                Toast.makeText(v.getContext(), getString(R.string.confirmation), Toast.LENGTH_SHORT).show();
+                finish();
+            }
         }
     }
 }

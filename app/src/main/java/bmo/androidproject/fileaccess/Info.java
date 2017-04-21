@@ -14,7 +14,7 @@ public class Info {
     private int ranking;
     private String ligue;
 
-    Info(int id,int time,int distance,int swimstyle,long date,String comment,int ranking,String ligue){
+    public Info(int id,int time,int distance,int swimstyle,long date,String comment,int ranking,String ligue){
         this.id = id;
         this.time = time;
         this.distance=distance;

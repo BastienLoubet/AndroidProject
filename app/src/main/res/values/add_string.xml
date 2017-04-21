@@ -5,4 +5,5 @@
     <string name="confirmation">Result has been added successfully !</string>
     <string name="errorTime"> Please enter a time </string>
     <string name="errorDistance"> Please enter a distance </string>
+    <string name="errorRanking"> Please enter a ranking </string>
 </resources>

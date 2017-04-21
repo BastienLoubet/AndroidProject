@@ -51,6 +51,7 @@ public class ListingActivity extends Activity {
         TableRow oRow = new TableRow(this);
         oRow.addView(CreateTextView(getString(R.string.listdate)));
         oRow.addView(CreateTextView(getString(R.string.listtime)));
+        oRow.addView(CreateTextView(getString(R.string.listdist)));
         oRow.addView(CreateTextView(getString(R.string.listswim)));
         oRow.addView(CreateTextView(getString(R.string.listrank)));
         oRow.addView(CreateTextView(getString(R.string.listleag)));

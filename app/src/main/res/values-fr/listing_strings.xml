@@ -3,11 +3,11 @@
 
     <string name="listitle">Liste des statistiques</string>
 
-    <string name="listdate">DATE</string>
-    <string name="listtime">TEMPS</string>
-    <string name="listdist">DIST</string>
-    <string name="listswim">NAGE</string>
-    <string name="listrank">RANG</string>
-    <string name="listleag">LIGUE</string>
+    <string name="listdate"><u>DATE</u></string>
+    <string name="listtime"><u>TEMPS</u></string>
+    <string name="listdist"><u>DIST</u></string>
+    <string name="listswim"><u>NAGE</u></string>
+    <string name="listrank"><u>RANG</u></string>
+    <string name="listleag"><u>LIGUE</u></string>
 
 </resources>

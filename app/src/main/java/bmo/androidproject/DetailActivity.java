@@ -12,11 +12,14 @@ import android.widget.Toast;
 
 public class DetailActivity extends Activity {
 
+    private int iId;
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("DetailActivity", "onCreate() ended");
-        Toast.makeText(this, "Stats en détail", Toast.LENGTH_SHORT).show();
+        iId = getIntent().getIntExtra("ResultId",-1);
+        Toast.makeText(this, "Stats en détail. recue l\'id "+Integer.toString(iId), Toast.LENGTH_SHORT).show();
         setContentView(R.layout.detail_layout);
-        //setPreview();
+
     }
 }

@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="detailTime">Temps des résultats en ms</string>
+    <string name="detailDistance">Distance parcourue en m</string>
+    <string name="detailSwimStyle">Style de nage</string>
+    <string name="detailDate">Date de votre performance</string>
+    <string name="detailComment">Vos commentaires</string>
+    <string name="detailButton">Modifier</string>
+    <string name="isCompetition">Compétition ?</string>
+    <string name="detailRanking">Classement</string>
+    <string name="detailLigue">Ligue</string>
+</resources>

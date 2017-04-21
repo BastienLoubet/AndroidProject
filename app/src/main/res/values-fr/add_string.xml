@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="addButton">Ajouter</string>
+    <string name="wrongFormat">Format de date erroné, utilisez celui-ci %1$s </string>
+    <string name="confirmation">Resultat ajouté avec succès !</string>
+    <string name="errorTime"> Veuillez entrer un temps </string>
+    <string name="errorDistance"> Veuillez entrer une distance </string>
+    <string name="errorRanking"> Veuillez entrer un classement </string>
+</resources>

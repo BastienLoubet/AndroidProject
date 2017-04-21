@@ -64,6 +64,5 @@ public class ResultPreview extends LinearLayout {
         oIntent.putExtra("Result", oResult);
         oContext.startActivity(oIntent);
         return true;
-
     }
 }

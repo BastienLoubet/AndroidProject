@@ -5,6 +5,7 @@ package bmo.androidproject.fileaccess;
  */
 
 public class Info {
+    private int id;
     private int time;
     private int distance;
     private int swimstyle;
@@ -13,7 +14,8 @@ public class Info {
     private int ranking;
     private String ligue;
 
-    Info(int time,int distance,int swimstyle,long date,String comment,int ranking,String ligue){
+    Info(int id,int time,int distance,int swimstyle,long date,String comment,int ranking,String ligue){
+        this.id = id;
         this.time = time;
         this.distance=distance;
         this.date = date;
@@ -23,6 +25,10 @@ public class Info {
     }
 
     //getters
+
+    public int getId() {
+        return id;
+    }
     public int getTime() {
         return time;
     }

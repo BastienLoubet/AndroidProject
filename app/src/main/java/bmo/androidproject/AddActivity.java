@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import bmo.androidproject.resulthandling.ListResult;
+import bmo.androidproject.resulthandling.Result;
 import bmo.androidproject.resulthandling.SwimEnum;
 
 /**
@@ -52,6 +53,14 @@ public class AddActivity extends Activity {
             ListResult oListRes = new ListResult(v.getContext());
             oListRes.addResult(123,456, SwimEnum.Backstroke,1232432543,"Un super commentaire");
             Toast.makeText(v.getContext(),"il y en a "+Integer.toString(oListRes.getResultNbr()),Toast.LENGTH_SHORT).show();
+            ListResult oList = new ListResult(v.getContext());
+            Result oResult = oList.getResultbyId(1);
+            String sMes= "";
+            sMes += Integer.toString(oResult.getTime());
+            sMes += Integer.toString(oResult.getDistance());
+            sMes += oResult.getSwinStyle(v.getContext());
+            sMes += oResult.getComment();
+            Toast.makeText(v.getContext(),sMes,Toast.LENGTH_SHORT).show();
         }
     }
 }

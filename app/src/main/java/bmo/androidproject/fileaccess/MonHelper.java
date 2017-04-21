@@ -1,9 +1,14 @@
 package bmo.androidproject.fileaccess;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+
+import bmo.androidproject.resulthandling.Result;
 
 /**
  * Created by Garry on 4/20/2017.
@@ -12,12 +17,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MonHelper extends SQLiteOpenHelper {
 
     public MonHelper(Context context) {
-        super(context, "Results", null, 1);
+        super(context, "Results", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE result(id INTEGER PRIMARY KEY, time INTEGER, distance INTEGER, swimstyle INTEGER, date INTEGER, comment TEXT,ranking INTEGER, ligue TEXT);");
+        db.execSQL("CREATE TABLE result(id INTEGER PRIMARY KEY AUTOINCREMENT, time INTEGER, distance INTEGER, swimstyle INTEGER, date INTEGER, comment TEXT,ranking INTEGER, ligue TEXT);");
     }
 
     @Override
@@ -25,6 +30,10 @@ public class MonHelper extends SQLiteOpenHelper {
         //fill this when upgrading schema
         //this happens when the version number found on the constructor is different from the existing db
         //We then run some ALTER TABLE to update the table.
+        if(oldVersion ==2){
+            db.execSQL("DROP TABLE result;");
+            db.execSQL("CREATE TABLE result(id INTEGER PRIMARY KEY AUTOINCREMENT, time INTEGER, distance INTEGER, swimstyle INTEGER, date INTEGER, comment TEXT,ranking INTEGER, ligue TEXT);");
+        }
     }
 
     //Insert result into the table
@@ -48,6 +57,7 @@ public class MonHelper extends SQLiteOpenHelper {
 
     //creer l'objet Info a passer a ListResult
     private Info makeFromRow(Cursor c){
+        int id = c.getColumnIndexOrThrow("id");
         int time = c.getInt(c.getColumnIndexOrThrow("time"));
         int distance = c.getInt(c.getColumnIndexOrThrow("distance"));
         int swimstyle= c.getInt(c.getColumnIndexOrThrow("swimstyle"));
@@ -55,7 +65,7 @@ public class MonHelper extends SQLiteOpenHelper {
         String comment= c.getString(c.getColumnIndexOrThrow("comment"));
         int ranking= c.getInt(c.getColumnIndexOrThrow("ranking"));
         String ligue= c.getString(c.getColumnIndexOrThrow("ligue"));
-        return new Info(time,distance,swimstyle,date,comment,ranking,ligue);
+        return new Info(id,time,distance,swimstyle,date,comment,ranking,ligue);
     }
 
     //Renvoie l'objet Info correspondant a l'id donne
@@ -68,4 +78,23 @@ public class MonHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    //Retourne les info des iNbr dernier resultat
+    public ArrayList<Info> getLastRow(int iNbr){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM result ORDER BY date DESC LIMIT ?;",new String[] {Integer.toString(iNbr)});
+        if(c.moveToFirst()){
+
+            return makeTableFromCursor(c);
+        }
+        return null;
+    }
+
+    //Cree un tableau de info a partir d'un curseur
+    private ArrayList<Info> makeTableFromCursor(Cursor c){
+        ArrayList<Info> aRes = new ArrayList<>();
+        do {
+            aRes.add(makeFromRow(c));
+        }while (c.moveToNext());
+        return aRes;
+    }
 }

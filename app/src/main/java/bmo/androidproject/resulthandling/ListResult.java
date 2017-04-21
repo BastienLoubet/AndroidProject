@@ -2,6 +2,8 @@ package bmo.androidproject.resulthandling;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 import bmo.androidproject.fileaccess.Info;
 import bmo.androidproject.fileaccess.MonHelper;
 
@@ -21,17 +23,17 @@ public class ListResult {
         this.oHelper = new MonHelper(oContext);
     }
 
-    private Result createResultFromInfo(int iId,Info oInfo){
+    private Result createResultFromInfo(Info oInfo){
         if(oInfo.getRanking() == 0)
-            return new Result(iId,oInfo.getTime(),oInfo.getDistance(),SwimEnum.values()[oInfo.getSwimstyle()],oInfo.getDate(),oInfo.getComment());
-        return new Result(iId,oInfo.getTime(),oInfo.getDistance(),SwimEnum.values()[oInfo.getSwimstyle()],oInfo.getDate(),oInfo.getComment(),oInfo.getRanking(),oInfo.getLigue());
+            return new Result(oInfo.getId(),oInfo.getTime(),oInfo.getDistance(),SwimEnum.values()[oInfo.getSwimstyle()],oInfo.getDate(),oInfo.getComment());
+        return new Result(oInfo.getId(),oInfo.getTime(),oInfo.getDistance(),SwimEnum.values()[oInfo.getSwimstyle()],oInfo.getDate(),oInfo.getComment(),oInfo.getRanking(),oInfo.getLigue());
     }
 
     //Retourne l'objet resultat a l'indice donne
     public Result getResultbyId(int iId){
         Info oInfo = oHelper.getTableRow(iId);
         if (oInfo != null){
-            return createResultFromInfo(iId,oInfo);
+            return createResultFromInfo(oInfo);
         }
         return null;
     }
@@ -44,4 +46,28 @@ public class ListResult {
     public int getResultNbr(){
         return oHelper.getTableSize();
     }
+
+    //Convertie un tableau d'info en tableau de Result
+    private ArrayList<Result> convertInfoArraytoResult(ArrayList<Info> aInfo){
+        ArrayList<Result> aRes = new ArrayList<>();
+        for(Info oInfo: aInfo){
+            aRes.add(createResultFromInfo(oInfo));
+        }
+        return aRes;
+    }
+
+    //Recupere les iNbr dernier resultat, si pas de resultat renvoi un tableau vide
+    public ArrayList<Result> getLastResult(int iNbr){
+        ArrayList<Info> aInfo = oHelper.getLastRow(iNbr);
+        if(aInfo != null){
+            return convertInfoArraytoResult(aInfo);
+        }
+        return new ArrayList<Result>();
+    }
+
+    //Surcharge de getLastResult prend les trois derniers par defaut
+    public ArrayList<Result> getLastResult(){
+        return getLastResult(3);
+    }
+
 }

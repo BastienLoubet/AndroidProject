@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -20,7 +21,7 @@ import bmo.androidproject.R;
  * Created by Garry on 4/19/2017.
  */
 
-public class ResultPreview extends LinearLayout {
+public class ResultPreview extends TableRow {
 
     //Le resultat affiche par l'objet
     private Result oResult;

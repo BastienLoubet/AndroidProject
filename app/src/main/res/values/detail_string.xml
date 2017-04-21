@@ -5,8 +5,8 @@
     <string name="detailSwimStyle">The swimstyle used</string>
     <string name="detailDate">The date of your feat</string>
     <string name="detailComment">Your comments</string>
-    <string name="detailButton">Modifier</string>
+    <string name="detailButton">Modify</string>
     <string name="isCompetition">Competition ?</string>
     <string name="detailRanking">Ranking</string>
-    <string name="detailLigue">The ligue</string>
+    <string name="detailLigue">The League</string>
 </resources>

@@ -70,7 +70,7 @@ public class ResultPreview extends LinearLayout {
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getActionMasked() == MotionEvent.ACTION_UP) {
             Intent oIntent = new Intent(oContext, DetailActivity.class);
-            oIntent.putExtra("Result", oResult);
+            oIntent.putExtra("ResultId", oResult.getId());
             oContext.startActivity(oIntent);
         }
         return true;

@@ -2,4 +2,12 @@
 <resources>
 
     <string name="listitle">Stats listing</string>
+
+    <string name="listdate">DATE</string>
+    <string name="listtime">TIME</string>
+    <string name="listdist">DIST</string>
+    <string name="listswim">SWIM</string>
+    <string name="listrank">RANK</string>
+    <string name="listleag">LEAGUE</string>
+
 </resources>

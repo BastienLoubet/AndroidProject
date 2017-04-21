@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="listitle">Liste des statistiques</string>
+
+    <string name="listdate">DATE</string>
+    <string name="listtime">TEMPS</string>
+    <string name="listdist">DIST</string>
+    <string name="listswim">NAGE</string>
+    <string name="listrank">RANG</string>
+    <string name="listleag">LIGUE</string>
+
 </resources>

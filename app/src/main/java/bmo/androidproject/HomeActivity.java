@@ -5,9 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -37,10 +41,31 @@ public class HomeActivity extends Activity {
         setPreview();
     }
 
+
+    private TextView CreateTextView(String sText) {
+        TextView oText = new TextView(new ContextThemeWrapper(this, R.style.legendStyle));
+        //TextView oText = new TextView(this);
+        oText.setText(sText);
+        return oText;
+    }
+
+    private TableRow createLegendRow(){
+        TableRow oRow = new TableRow(this);
+        oRow.addView(CreateTextView(getString(R.string.listdate)));
+        oRow.addView(CreateTextView(getString(R.string.listtime)));
+        oRow.addView(CreateTextView(getString(R.string.listdist)));
+        oRow.addView(CreateTextView(getString(R.string.listswim)));
+        oRow.addView(CreateTextView(getString(R.string.listrank)));
+        oRow.addView(CreateTextView(getString(R.string.listleag)));
+        return oRow;
+    }
+
+
     //Ajoute les derniers resultat au linear layout de preview
     private void setPreview(){
-        LinearLayout oLayout = (LinearLayout) findViewById(R.id.preview);
+        TableLayout oLayout = (TableLayout) findViewById(R.id.preview);
         oLayout.removeAllViews();
+        oLayout.addView(createLegendRow());
         ListResult oList = new ListResult(this);
         ArrayList<Result> aRes = oList.getLastResult();
         for(Result oRes: aRes){

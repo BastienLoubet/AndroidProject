@@ -106,7 +106,7 @@ public class AddActivity extends Activity {
                 return new Info(0,time,distance,oSwim.ordinal(),lDate,comment,0,"");
 
             int ranking = getInt(R.id.detailRanking);
-            if(ranking == -1){
+            if(ranking <= 0){
                 Toast.makeText(v.getContext(),getString(R.string.errorRanking),Toast.LENGTH_SHORT).show();
                 return null;
             }

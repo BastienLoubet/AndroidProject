@@ -32,6 +32,8 @@ public class AddActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_layout);
+
+        android.text.format.DateFormat.format("yyyy-MM-dd hh:mm:ss a", new java.util.Date());
         initSpinner();
         initButton();
     }

@@ -4,12 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -34,15 +39,30 @@ public class ListingActivity extends Activity {
 
     }
 
+    private TextView CreateTextView(String sText) {
 
+        TextView oText = new TextView(new ContextThemeWrapper(this, R.style.textPreview));
+        oText.setText(sText);
+        return oText;
+    }
+
+    private TableRow createLegendRow(){
+        TableRow oRow = new TableRow(new ContextThemeWrapper(this,R.style.legendeStyle));
+        oRow.addView(CreateTextView("whatever"));
+        oRow.addView(CreateTextView("whatever2"));
+        oRow.addView(CreateTextView("whatever3"));
+        return oRow;
+    }
 
     //Ajoute les derniers resultat au linear layout de preview
     private void setPreview(){
         LinearLayout oLayout = (LinearLayout) findViewById(R.id.listing);
         oLayout.removeAllViews();
+        oLayout.addView(createLegendRow());
        ListResult oList = new ListResult(this);
         ArrayList<Result> aRes = oList.getAllResult();
         Toast.makeText(this, Integer.toString(aRes.size()), Toast.LENGTH_SHORT).show();
+
         for(Result oRes: aRes){
             oLayout.addView(new ResultPreview(oRes,this));
         }

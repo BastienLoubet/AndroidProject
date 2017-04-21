@@ -33,24 +33,55 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:autoLink="email|phone"
-            android:text="@string/home_info"
-            android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            />
+            android:paddingTop="10dp"
+            android:text="@string/home_info" />
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temps" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nage" />
+
+
+        </LinearLayout>
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                style="@style/layouStyle1"
+
+            <TableLayout
                 android:id="@+id/preview"
+                style="@style/layouStyle1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
                 android:orientation="vertical">
-            </LinearLayout>
-            
+
+            </TableLayout>
+
         </HorizontalScrollView>
 
         <LinearLayout

@@ -21,14 +21,12 @@ style="@style/layouStyle1"
         android:layout_height="wrap_content">
 
 
-        <LinearLayout
+        <TableLayout
             android:id="@+id/listing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
-        </LinearLayout>
+        </TableLayout>
 
     </HorizontalScrollView>
 </LinearLayout>

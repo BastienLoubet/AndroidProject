@@ -26,4 +26,12 @@
         <item name="android:padding">10sp</item>
     </style>
 
+    <style name="legendeStyle">
+        <item name="android:textColor">#fc5e3b</item>
+        <item name="android:background">#006d8c</item>
+        <item name="android:padding">10sp</item>
+        <item name="android:textSize">24sp</item>
+
+    </style>
+
 </resources>

@@ -47,8 +47,8 @@ public class ListingActivity extends Activity {
     }
 
     private TableRow createLegendRow(){
-        TableRow oRow = new TableRow(new ContextThemeWrapper(this,R.style.legendeStyle));
-        oRow.addView(CreateTextView("whatever"));
+        TableRow oRow = new TableRow(this);
+        oRow.addView(CreateTextView("toto"));
         oRow.addView(CreateTextView("whatever2"));
         oRow.addView(CreateTextView("whatever3"));
         return oRow;

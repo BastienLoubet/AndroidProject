@@ -39,8 +39,11 @@
             android:id="@+id/preview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="8    "
-            android:orientation="vertical"></LinearLayout>
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

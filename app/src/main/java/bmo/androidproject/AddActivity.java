@@ -79,7 +79,6 @@ public class AddActivity extends Activity {
             EditText oComment = (EditText) findViewById(R.id.detailComment);
             String comment = oComment.getText().toString();
             Spinner oSpin = (Spinner) findViewById(R.id.detailSwimStyle);
-            //Toast.makeText(v.getContext(),SwimEnum.values()[oSpin.getSelectedItemPosition()].getName(v.getContext()),Toast.LENGTH_SHORT).show();
             SwimEnum oSwim = SwimEnum.values()[oSpin.getSelectedItemPosition()];
             EditText oDate = (EditText) findViewById(R.id.detailDate);
             long lDate = 0;
@@ -103,8 +102,8 @@ public class AddActivity extends Activity {
             ListResult oListRes = new ListResult(v.getContext());
 
             oListRes.addResult(time,distance, oSwim,lDate,comment);
-            //Toast.makeText(v.getContext(),"il y en a "+Integer.toString(oListRes.getResultNbr()),Toast.LENGTH_SHORT).show();
             Toast.makeText(v.getContext(),getString(R.string.confirmation),Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 }

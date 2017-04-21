@@ -83,7 +83,6 @@ public class MonHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM result ORDER BY date DESC LIMIT ?;",new String[] {Integer.toString(iNbr)});
         if(c.moveToFirst()){
-
             return makeTableFromCursor(c);
         }
         return null;
@@ -96,5 +95,15 @@ public class MonHelper extends SQLiteOpenHelper {
             aRes.add(makeFromRow(c));
         }while (c.moveToNext());
         return aRes;
+    }
+
+    //retourne tout les champs sous forme d'un arrayl<Info>
+    public ArrayList<Info> getAllRow(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM result ORDER BY date DESC;",null);
+        if(c.moveToFirst()){
+            return makeTableFromCursor(c);
+        }
+        return null;
     }
 }

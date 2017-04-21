@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -50,8 +51,18 @@ public class AddActivity extends Activity {
 
         @Override
         public void onClick(View v) {
+            EditText oTime = (EditText) findViewById(R.id.detailTime);
+            int time = Integer.parseInt(oTime.getText().toString());
+            EditText oDistance = (EditText) findViewById(R.id.detailDistance);
+            int distance = Integer.parseInt(oDistance.getText().toString());
+            EditText oComment = (EditText) findViewById(R.id.detailComment);
+            String comment = oComment.getText().toString();
+            Spinner oSpin = (Spinner) findViewById(R.id.detailSwimStyle);
+            SwimEnum oSwim = SwimEnum.values()[oSpin.getSelectedItemPosition()];
+            EditText oDate = (EditText) findViewById(R.id.detailDate);
             ListResult oListRes = new ListResult(v.getContext());
-            oListRes.addResult(123,456, SwimEnum.Backstroke,1232432543,"Un super commentaire");
+
+            oListRes.addResult(1213,456, SwimEnum.Backstroke,1232432543,"Un super commentaire");
             Toast.makeText(v.getContext(),"il y en a "+Integer.toString(oListRes.getResultNbr()),Toast.LENGTH_SHORT).show();
             ListResult oList = new ListResult(v.getContext());
             Result oResult = oList.getResultbyId(1);

@@ -47,6 +47,8 @@ public class ResultPreview extends TableRow {
     //Initialise l'objet layout et modifie les vues nessecaires
     private void initView() {
 
+        //CreateTextView(Integer.toString(oResult.getId()));
+
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
         Date oDate = new Date(oResult.getDate());
         CreateTextView(df.format(oDate));

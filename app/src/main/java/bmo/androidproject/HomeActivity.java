@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import bmo.androidproject.fileaccess.Load;
 import bmo.androidproject.resulthandling.ListResult;
 import bmo.androidproject.resulthandling.Result;
@@ -37,11 +39,16 @@ public class HomeActivity extends Activity {
         setPreview();
     }
 
+    //Ajoute les derniers resultat au linear layout de preview
     private void setPreview(){
         LinearLayout oLayout = (LinearLayout) findViewById(R.id.preview);
-        //ListResult oList = new ListResult(this);
-        oLayout.addView(new ResultPreview(new Result(0,1000,1000, SwimEnum.Backstroke,27174352,"Un super commentaire  !"),this));
-        oLayout.addView(new ResultPreview(new Result(1,9000,1000, SwimEnum.Backstroke,22717432,"Un autre super commentaire  !",1,"Occitanie"),this));
+        ListResult oList = new ListResult(this);
+        ArrayList<Result> aRes = oList.getLastResult();
+        for(Result oRes: aRes){
+            oLayout.addView(new ResultPreview(oRes,this));
+        }
+        //oLayout.addView(new ResultPreview(new Result(0,1000,1000, SwimEnum.Backstroke,27174352,"Un super commentaire  !"),this));
+        //oLayout.addView(new ResultPreview(new Result(1,9000,1000, SwimEnum.Backstroke,22717432,"Un autre super commentaire  !",1,"Occitanie"),this));
     }
 
 

@@ -40,6 +40,12 @@ public class ListingActivity extends Activity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setPreview();
+    }
+
     private TextView CreateTextView(String sText) {
         TextView oText = new TextView(new ContextThemeWrapper(this, R.style.legendStyle));
         //TextView oText = new TextView(this);

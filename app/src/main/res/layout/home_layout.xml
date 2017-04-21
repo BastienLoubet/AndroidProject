@@ -33,7 +33,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:autoLink="email|phone"
-            android:text="@string/home_info" />
+            android:text="@string/home_info"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
 
         <HorizontalScrollView
             android:layout_width="wrap_content"

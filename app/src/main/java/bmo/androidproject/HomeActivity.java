@@ -1,16 +1,10 @@
 package bmo.androidproject;
 
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,11 +12,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import bmo.androidproject.fileaccess.Load;
 import bmo.androidproject.resulthandling.ListResult;
 import bmo.androidproject.resulthandling.Result;
 import bmo.androidproject.resulthandling.ResultPreview;
-import bmo.androidproject.resulthandling.SwimEnum;
 
 /**
  * Created by Garry on 4/19/2017.

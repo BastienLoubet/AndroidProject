@@ -16,7 +16,7 @@ public class DetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.i("DetailActivity", "onCreate() ended");
         Toast.makeText(this, "Stats en détail", Toast.LENGTH_SHORT).show();
-        // setContentView(R.layout.detail_layout);
+        setContentView(R.layout.detail_layout);
         // setPreview();
     }
 }

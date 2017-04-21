@@ -2,10 +2,16 @@ package bmo.androidproject.resulthandling;
 
 import android.content.Context;
 import android.content.Intent;
+
 import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.util.Date;
 
 import bmo.androidproject.DetailActivity;
 import bmo.androidproject.R;
@@ -40,7 +46,9 @@ public class ResultPreview extends LinearLayout {
     //Initialise l'objet layout et modifie les vues nessecaires
     private void initView() {
 
-        CreateTextView(Long.toString(oResult.getDate()));
+        DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
+        Date oDate = new Date(oResult.getDate());
+        CreateTextView(df.format(oDate));
 
         CreateTextView(Integer.toString(oResult.getTime()));
 

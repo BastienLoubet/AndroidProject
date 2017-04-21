@@ -3,6 +3,7 @@ package bmo.androidproject;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -40,17 +41,20 @@ public class ListingActivity extends Activity {
     }
 
     private TextView CreateTextView(String sText) {
-
-        TextView oText = new TextView(new ContextThemeWrapper(this, R.style.textPreview));
+        TextView oText = new TextView(new ContextThemeWrapper(this, R.style.legendStyle));
+        //TextView oText = new TextView(this);
         oText.setText(sText);
         return oText;
     }
 
     private TableRow createLegendRow(){
         TableRow oRow = new TableRow(this);
-        oRow.addView(CreateTextView("toto"));
-        oRow.addView(CreateTextView("whatever2"));
-        oRow.addView(CreateTextView("whatever3"));
+        oRow.addView(CreateTextView(getString(R.string.listdate)));
+        oRow.addView(CreateTextView(getString(R.string.listtime)));
+        oRow.addView(CreateTextView(getString(R.string.listdist)));
+        oRow.addView(CreateTextView(getString(R.string.listswim)));
+        oRow.addView(CreateTextView(getString(R.string.listrank)));
+        oRow.addView(CreateTextView(getString(R.string.listleag)));
         return oRow;
     }
 

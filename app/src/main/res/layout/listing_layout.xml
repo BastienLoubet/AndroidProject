@@ -11,7 +11,6 @@ style="@style/layouStyle1"
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="@string/listitle"
         android:textAlignment="center"
         android:textSize="24sp" />
@@ -25,7 +24,8 @@ style="@style/layouStyle1"
             android:id="@+id/listing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal|fill_horizontal"
+            android:layout_gravity="top"
+            android:gravity="top"
             android:orientation="vertical"></TableLayout>
 
     </HorizontalScrollView>

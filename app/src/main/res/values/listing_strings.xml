@@ -9,5 +9,9 @@
     <string name="listswim"><u>SWIM</u></string>
     <string name="listrank"><u>RANK</u></string>
     <string name="listleag"><u>LEAGUE</u></string>
+    <plurals name="listingMessage">
+        <item quantity="one">There is %1$d result</item>
+        <item quantity="other">There are %1$d results</item>
+    </plurals>
 
 </resources>

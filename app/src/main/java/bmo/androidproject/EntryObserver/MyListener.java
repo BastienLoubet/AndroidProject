@@ -13,7 +13,6 @@ import java.util.Date;
 
 import bmo.androidproject.R;
 import bmo.androidproject.fileaccess.Info;
-import bmo.androidproject.resulthandling.ListResult;
 import bmo.androidproject.resulthandling.SwimEnum;
 
 /**

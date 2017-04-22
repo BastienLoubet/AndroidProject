@@ -10,4 +10,8 @@
     <string name="detailRanking">Ranking</string>
     <string name="detailLigue">The League</string>
     <string name="buttonModify">Save change</string>
+    <string name="buttonDelete">Delete</string>
+    <string name="databaseError">Error when accessing the database !</string>
+    <string name="saveConfirmation"> Changes saved ! </string>
+    <string name="deleteConfirmation"> Result deleted ! </string>
 </resources>

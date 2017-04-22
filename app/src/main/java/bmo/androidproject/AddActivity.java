@@ -40,5 +40,9 @@ public class AddActivity extends Activity {
         oButton.setText(getString(R.string.addButton));
         //Add button observer
         oButton.setOnClickListener(new bmo.androidproject.EntryObserver.AddMyListener(this));
+
+        oButton = (Button) findViewById(R.id.detailButton2);
+        oButton.setVisibility(View.GONE);
+
     }
 }

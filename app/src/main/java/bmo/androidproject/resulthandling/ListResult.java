@@ -90,4 +90,10 @@ public class ListResult {
     public void ModifyResult(int iId,int iTime,int iDistance,SwimEnum oSwinStyle, long lDate, String sComment, int iRanking,String sLigue){
         oHelper.ModifyResult(iId,iTime,iDistance,oSwinStyle.ordinal(),lDate,sComment,iRanking,sLigue);
     }
+
+    //Fonction qui appelle l'effacement dans la base de donnnees
+    public void deleteById(int iId){
+        oHelper.deleteById(iId);
+    }
+
 }

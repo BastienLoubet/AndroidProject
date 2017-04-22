@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,6 +18,7 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Date;
 
+import bmo.androidproject.EntryObserver.DeleteMyListener;
 import bmo.androidproject.fileaccess.Info;
 import bmo.androidproject.resulthandling.ListResult;
 import bmo.androidproject.resulthandling.Result;
@@ -49,6 +51,10 @@ public class DetailActivity extends Activity {
         oButton.setText(getString(R.string.buttonModify));
         //Add button observer
         oButton.setOnClickListener(new bmo.androidproject.EntryObserver.ModifyMyListener(this, iId));
+
+        oButton = (Button) findViewById(R.id.detailButton2);
+        oButton.setText(getString(R.string.buttonDelete));
+        oButton.setOnClickListener(new DeleteMyListener(this,iId));
     }
 
     private void setEditText(int iId, Object sString) {

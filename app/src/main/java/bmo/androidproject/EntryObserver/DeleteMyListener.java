@@ -25,7 +25,7 @@ public class DeleteMyListener extends MyListener {
     public void onClick(View v) {
         ListResult oList = new ListResult(v.getContext());
         oList.deleteById(iId);
-        Toast.makeText(oActivity,v.getContext().getString(R.string.deleteConfirmation),Toast.LENGTH_SHORT).show();
+
         oActivity.finish();
     }
 }

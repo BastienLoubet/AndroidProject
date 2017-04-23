@@ -26,7 +26,7 @@ public class AddMyListener extends MyListener {
         if(oInfo != null) {
             ListResult oListRes = new ListResult(v.getContext());
             oListRes.addResult(oInfo.getTime(), oInfo.getDistance(), SwimEnum.values()[oInfo.getSwimstyle()], oInfo.getDate(), oInfo.getComment(),oInfo.getRanking(),oInfo.getLigue());
-            Toast.makeText(v.getContext(), oActivity.getString(R.string.confirmation), Toast.LENGTH_SHORT).show();
+
             oActivity.finish();
         }
     }

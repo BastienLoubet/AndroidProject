@@ -48,6 +48,7 @@ public class MonHelper extends SQLiteOpenHelper {
             SQLiteDatabase db = getWritableDatabase();
             db.execSQL("INSERT INTO result(time,distance,swimstyle,date,comment,ranking,ligue) VALUES (?,?,?,?,?,?,?);",
                     new Object[]{time, distance, swimstyle, date, comment, ranking, ligue});
+            Toast.makeText(oContext, oContext.getString(R.string.confirmation), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             showErrorMessage();
             e.printStackTrace();
@@ -160,6 +161,7 @@ public class MonHelper extends SQLiteOpenHelper {
             SQLiteDatabase db = getWritableDatabase();
             db.execSQL("UPDATE result SET time=? , distance=? , swimstyle=?, date =?, comment=?, ranking=?, ligue=? WHERE _id=?",
                     new Object[]{iTime, iDistance, iSwinStyle, lDate, sComment, iRanking, sLigue, iId});
+            Toast.makeText(oContext, oContext.getString(R.string.saveConfirmation), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             showErrorMessage();
             e.printStackTrace();
@@ -171,6 +173,7 @@ public class MonHelper extends SQLiteOpenHelper {
             SQLiteDatabase db = getWritableDatabase();
             db.execSQL("DELETE FROM result WHERE _id=?",
                     new Object[]{iId});
+            Toast.makeText(oContext,oContext.getString(R.string.deleteConfirmation),Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             showErrorMessage();
             e.printStackTrace();

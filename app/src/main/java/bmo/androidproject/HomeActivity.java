@@ -33,6 +33,7 @@ public class HomeActivity extends Activity {
         setContentView(R.layout.home_layout);
         setListeners();
         setPreview();
+        HideGraph();
     }
 
     @Override
@@ -41,6 +42,11 @@ public class HomeActivity extends Activity {
         setPreview();
     }
 
+
+    private void HideGraph(){
+        Button oButton = (Button) findViewById(R.id.button2);
+        oButton.setVisibility(View.GONE);
+    }
 
     private TextView CreateTextView(String sText) {
         TextView oText = new TextView(new ContextThemeWrapper(this, R.style.legendStyle));

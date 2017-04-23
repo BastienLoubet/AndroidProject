@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-
     >
 
     <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,7 +19,7 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/app_name"
             android:textAlignment="center"
-            android:textColor="#405636"
+            android:textColor="#ffffff"
             android:textSize="25sp" />
 
         <ImageView
@@ -37,11 +36,13 @@
             android:layout_height="wrap_content"
             android:autoLink="email|phone"
 
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="@string/home_info"
 
-            android:textAlignment="center"
+            style="@style/textPreview"
             />
 
 

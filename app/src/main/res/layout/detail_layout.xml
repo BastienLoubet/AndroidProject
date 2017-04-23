@@ -1,98 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fillViewport="true">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/detailTime"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:id="@+id/detailTime"/>
+        android:layout_height="match_parent"
+        android:background="#029fff"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/detailDistance"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:id="@+id/detailDistance"/>
+        <TextView
+            style="@style/textPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detailTime" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/detailSwimStyle"/>
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/SwimStyle"
-        android:id="@+id/detailSwimStyle"/>
+        <EditText
+            android:id="@+id/detailTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:inputType="numberDecimal" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/detailDate"/>
+        <TextView
+            style="@style/textPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detailDistance" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailDate"
-        android:inputType="date"/>
+        <EditText
+            android:id="@+id/detailDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:inputType="numberDecimal" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/detailComment"/>
+        <TextView
+            style="@style/textPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detailSwimStyle" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailComment" />
+        <Spinner
+            android:id="@+id/detailSwimStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/SwimStyle"
+             />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/isCompetition"
-        android:text="@string/isCompetition"/>
+        <TextView
+            style="@style/textPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detailDate" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/detailRanking"/>
+        <EditText
+            android:id="@+id/detailDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:inputType="date" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:id="@+id/detailRanking" />
+        <TextView
+            style="@style/textPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detailComment" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/detailLigue"/>
+        <EditText
+            android:id="@+id/detailComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:id="@+id/detailLigue" />
+        <CheckBox
+            android:id="@+id/isCompetition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:text="@string/isCompetition" />
+
+        <TextView
+            style="@style/textPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detailRanking" />
+
+        <EditText
+            android:id="@+id/detailRanking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            style="@style/textPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detailLigue" />
+
+        <EditText
+            android:id="@+id/detailLigue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:inputType="text" />
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailButton"/>
+        <Button
+            android:id="@+id/detailButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/button"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailButton2"/>
+        <Button
+            android:id="@+id/detailButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/button"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

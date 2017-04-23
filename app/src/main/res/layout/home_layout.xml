@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#029fff"
+    android:fillViewport="true"
 
-    >
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     >
 
     <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:background="#029fff"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
             android:text="@string/app_name"
             android:textAlignment="center"
             android:textColor="#405636"
@@ -35,24 +28,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/home"
-            android:textAlignment="center" />
+            android:src="@drawable/home" />
 
         <TextView
 
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:autoLink="email|phone"
-            android:gravity="fill_horizontal"
+
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:text="@string/home_info" />
+            android:text="@string/home_info"
+
+            android:textAlignment="center"
+            />
 
 
         <HorizontalScrollView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
@@ -61,23 +55,24 @@
                 style="@style/layouStyle1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
+                android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
 
             </TableLayout>
 
         </HorizontalScrollView>
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="horizontal">-->
 
             <Button
                 android:id="@+id/button1"
                 style="@style/button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/bt1" />
 
@@ -85,7 +80,7 @@
                 android:id="@+id/button2"
                 style="@style/button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:shadowColor="@color/colorPrimaryDark"
                 android:text="@string/bt2" />
@@ -94,13 +89,12 @@
                 android:id="@+id/button3"
                 style="@style/button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/bt3" />
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
 
     </LinearLayout>
 
 </ScrollView>
-</LinearLayout>
